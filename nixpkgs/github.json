@@ -1,8 +1,8 @@
 {
   "owner": "obsidiansystems",
   "repo": "nixpkgs",
-  "branch": "reflex-platform-20.09",
+  "branch": "dn-enable-ghcjs-darwin",
   "private": false,
-  "rev": "198e8aba0d5225765323a8a958ebf7732d8b3ce8",
-  "sha256": "0ww6v1pm8r5lyxnfvps6hs3pl8v3p78jzs64qgqwihmd4wydxppz"
+  "rev": "be1d1ff8495133d0043b02aa9e548b9f94aa0e94",
+  "sha256": "0sw3mkadps0fj53ara5r9nx89hhb70l2z0v167qcymf33n58drzm"
 }
