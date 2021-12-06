@@ -1,8 +1,8 @@
 {
-  "owner": "obsidiansystems",
+  "owner": "NixOS",
   "repo": "nixpkgs",
-  "branch": "dn-enable-ghcjs-darwin",
+  "branch": "release-21.11",
   "private": false,
-  "rev": "be1d1ff8495133d0043b02aa9e548b9f94aa0e94",
-  "sha256": "130g0m3h4xv7z2gfac51g57kksnrnp2zv8d4pvdixqhj9ib7rfd9"
+  "rev": "f0dc90a7277a373cc19aea6bf8e065df50d03f86",
+  "sha256": "0d9rimm2qhgsdr372xwxxm1w92qm6ki1wklayz5frvvw2q79b8g7"
 }
