@@ -37,6 +37,8 @@ self: super: {
     revision = "3";
     editedCabalFile = "0qj6180459mx08v3m8x8nw2a8a7srw2q48dh4d9qgwd1rl499a5i";
   });
+  # constrain ref-tf version so that jsaddle can compile correctly
+  ref-tf = self.callHackage "ref-tf" "0.4.0.2" {};
   connection = self.callHackage "connection" "0.3.1" {};
   doclayout = self.callHackage "doclayout" "0.3" {};
   doctemplates = self.callHackage "doctemplates" "0.8.2" {};
