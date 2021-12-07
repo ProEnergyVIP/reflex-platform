@@ -39,6 +39,13 @@ self: super: {
   });
   # constrain ref-tf version so that jsaddle can compile correctly
   ref-tf = self.callHackage "ref-tf" "0.4.0.2" {};
+  # constrain hlint and witherable so that "patch" can compile correctly
+  hlint = self.callHackage "hlint" "3.2.7" {};
+  witherable = self.callHackage "witherable" "0.3.4" {};
+
+  # contsrain "constraints" version so reflex-dom-core can compile correctly
+  constraints = self.callHackage "constraints" "0.12" {};
+
   connection = self.callHackage "connection" "0.3.1" {};
   doclayout = self.callHackage "doclayout" "0.3" {};
   doctemplates = self.callHackage "doctemplates" "0.8.2" {};
