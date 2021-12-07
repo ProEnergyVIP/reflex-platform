@@ -46,6 +46,12 @@ self: super: {
   # contsrain "constraints" version so reflex-dom-core can compile correctly
   constraints = self.callHackage "constraints" "0.12" {};
 
+  vty = self.callHackage "vty" "5.28.2" {};
+  microlens = self.callHackage "microlens" "0.4.11.2" {};
+  microlens-ghc = self.callHackage "microlens-ghc" "0.4.12" {};
+  microlens-platform = self.callHackage "microlens-platform" "0.4.1" {};
+  optparse-applicative = self.callHackage "optparse-applicative" "0.15.1.0" {};
+
   connection = self.callHackage "connection" "0.3.1" {};
   doclayout = self.callHackage "doclayout" "0.3" {};
   doctemplates = self.callHackage "doctemplates" "0.8.2" {};
