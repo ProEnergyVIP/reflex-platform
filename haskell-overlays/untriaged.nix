@@ -31,7 +31,12 @@ self: super: {
   pandoc-types = self.callHackage "pandoc-types" "1.22" {};
   texmath = self.callHackage "texmath" "0.12.0.3" {};
   rfc5051 = self.callHackage "rfc5051" "0.2" {};
-  HsYAML = self.callHackage "HsYAML" "0.2.1.0" {};
+  # force to use newest revision of HsYAML
+  #HsYAML = self.callHackage "HsYAML" "0.2.1.0" {};
+  HsYAML = haskellLib.overrideCabal super.HsYAML (drv: {
+    revision = "3";
+    editedCabalFile = "0qj6180459mx08v3m8x8nw2a8a7srw2q48dh4d9qgwd1rl499a5i";
+  });
   connection = self.callHackage "connection" "0.3.1" {};
   doclayout = self.callHackage "doclayout" "0.3" {};
   doctemplates = self.callHackage "doctemplates" "0.8.2" {};
@@ -60,6 +65,6 @@ self: super: {
   neat-interpolation = self.callHackage "neat-interpolation" "0.4" {};
   prettyprinter = self.callHackage "prettyprinter" "1.7.0" {};
   cryptohash-sha512 = doJailbreak super.cryptohash-sha512;
-  ListLike = self.callHackage "ListLike" "4.7.3" {};
+  ListLike = self.callHackage "ListLike" "4.7.4" {};
 
 }
