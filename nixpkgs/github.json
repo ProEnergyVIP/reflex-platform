@@ -1,8 +1,8 @@
 {
-  "owner": "NixOS",
+  "owner": "ProEnergyVIP",
   "repo": "nixpkgs",
-  "branch": "release-21.11",
+  "branch": "release-21.05",
   "private": false,
-  "rev": "f0dc90a7277a373cc19aea6bf8e065df50d03f86",
-  "sha256": "0d9rimm2qhgsdr372xwxxm1w92qm6ki1wklayz5frvvw2q79b8g7"
+  "rev": "45049f4ae4caf4e1a73622a98a7c227c275e1886",
+  "sha256": "0j3dpbzmz1195h5wmvb3v246zcmfnxj54fzq60b955k373kc9jwx"
 }
