@@ -9,8 +9,8 @@ self: super: {
   _dep = super._dep or {} // {
     ghcjsBaseSrc = fetchgit {
       url = "https://github.com/ghcjs/ghcjs-base.git";
-      rev = "6be0e992e292db84ab42691cfb172ab7cd0e709e";
-      sha256 = "0nk7a01lprf40zsiph3ikwcqcdb1lghlj17c8zzhiwfmfgcc678g";
+      rev = "85e31beab9beffc3ea91b954b61a5d04e708b8f2";
+      sha256 = "0nk7a01lprf40zsiph3ikwcqcdb1lghlj17c8zzhiwfmf3cc678g";
     };
   };
 
@@ -31,7 +31,7 @@ self: super: {
 
   ghcjs-base = doJailbreak (dontCheck (self.callCabal2nix "ghcjs-base" self._dep.ghcjsBaseSrc {}));
   # ghcjs-base needs an older version than nixpkgs provides.
-  primitive = self.callHackage "primitive" "0.6.4.0" {};
+  primitive = self.callHackage "primitive" "0.7.3.0" {};
 
   ghc = if !(lib.versionAtLeast super.ghc.ghcVersion "8.2") then super.ghc else super.ghc.overrideAttrs (_: {
     # TODO: I don't think this is needed except for maybe the fast-weak patch, but doing this to preserve hashes.
