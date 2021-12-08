@@ -27,7 +27,7 @@ let iosSupport = system == "x86_64-darwin";
     splicesEval = self: super: {
       haskell = super.haskell // {
         compiler = super.haskell.compiler // {
-          ghcSplices-8_10 = super.haskell.compiler.ghc8104.overrideAttrs (drv: {
+          ghcSplices-8_10 = super.haskell.compiler.ghc8107.overrideAttrs (drv: {
             src = nixpkgs.hackGet ./haskell-overlays/splices-load-save/dep/ghc-8.10;
             # When building from the ghc git repo, ./boot must be run before configuring, whereas
             # in the distribution tarball on the haskell.org downloads page, ./boot has already been
@@ -43,7 +43,7 @@ let iosSupport = system == "x86_64-darwin";
           });
         };
         packages = super.haskell.packages // {
-          ghcSplices-8_10 = super.haskell.packages.ghc8104.override {
+          ghcSplices-8_10 = super.haskell.packages.ghc8107.override {
             buildHaskellPackages = self.buildPackages.haskell.packages.ghcSplices-8_10;
             ghc = self.buildPackages.haskell.compiler.ghcSplices-8_10;
           };
