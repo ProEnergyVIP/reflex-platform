@@ -43,6 +43,13 @@ self: super: {
   hlint = self.callHackage "hlint" "3.2.7" {};
   witherable = self.callHackage "witherable" "0.3.4" {};
 
+
+  ghcide = self.callHackage "ghcide" "1.6.0.1" {};
+  lsp = self.callHackage "lsp" "1.4.0.0" {};
+  lsp-test = self.callHackage "lsp-test" "0.14.0.2" {};
+  lsp-types = self.callHackage "lsp-types" "1.4.0.1" {};
+  hls-plugin-api = self.callHackage "hls-plugin-api" "1.3.0.0" {};
+
   # contsrain "constraints" version so reflex-dom-core can compile correctly
   constraints = self.callHackage "constraints" "0.12" {};
 
