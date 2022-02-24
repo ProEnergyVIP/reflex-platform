@@ -43,6 +43,8 @@ self: super: {
   hlint = self.callHackage "hlint" "3.2.7" {};
   witherable = self.callHackage "witherable" "0.3.4" {};
 
+  ghcide = self.callHackage "ghcide" "1.6.0.1" {};
+
   # contsrain "constraints" version so reflex-dom-core can compile correctly
   constraints = self.callHackage "constraints" "0.12" {};
 
