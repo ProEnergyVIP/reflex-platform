@@ -49,6 +49,7 @@ let iosSupport = system == "x86_64-darwin";
             buildHaskellPackages = self.buildPackages.haskell.packages.ghcSplices-8_10;
             ghc = self.buildPackages.haskell.compiler.ghcSplices-8_10;
           };
+          happy = super.haskell.packages.happy_1_19_12;
         };
       };
     };
