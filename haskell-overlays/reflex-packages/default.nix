@@ -156,6 +156,9 @@ in
   ghcjs-dom-jsaddle = self.callCabal2nix "ghcjs-dom-jsaddle" (self._dep.ghcjs-dom + "/ghcjs-dom-jsaddle") {};
   ghcjs-dom-jsffi = self.callCabal2nix "ghcjs-dom-jsffi" (self._dep.ghcjs-dom + "/ghcjs-dom-jsffi") {};
 
+  # fullfil reflex-ghci requirement
+  optparse-applicative = self.callHackage "optparse-applicative" "0.15.1.0" {};
+  
   ##
   ## Gargoyle and dependencies
   ##
