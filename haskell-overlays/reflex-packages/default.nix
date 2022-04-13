@@ -202,6 +202,8 @@ in
 
   # OneTuple for universe
   OneTuple = self.callHackage "OneTuple" "0.3.1" {};
+  base-orphans = self.callHackage "base-orphans" "0.8.6" {};
+  hashable = self.callHackage "hashable" "1.3.5.0" {};
 
   # Need to use `--subpath` because LICENSE in each dir is a symlink to the repo root.
   universe = self.callCabal2nixWithOptions "universe" universeRepo "--subpath universe" {};
