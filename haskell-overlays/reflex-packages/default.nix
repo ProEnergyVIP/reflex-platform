@@ -211,6 +211,7 @@ in
   universe-instances-extended = self.callCabal2nixWithOptions "universe" universeRepo "--subpath universe-instances-extended" {};
   universe-reverse-instances = self.callCabal2nixWithOptions "universe" universeRepo "--subpath universe-reverse-instances" {};
   universe-instances-base = self.callCabal2nixWithOptions "universe" universeRepo "--subpath deprecated/universe-instances-base" {};
+  universe-some = self.callCabal2nixWithOptions "universe" universeRepo "--subpath universe-some" {};
 
   th-abstraction = self.callHackage "th-abstraction" "0.4.3.0" {};
 
