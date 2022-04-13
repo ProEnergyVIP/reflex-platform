@@ -176,6 +176,7 @@ in
   haskell-gi-overloading = dontHaddock (self.callHackage "haskell-gi-overloading" "0.0" {});
   monoidal-containers = self.callHackage "monoidal-containers" "0.6.0.1" {};
   #patch = self.callCabal2nix "patch" self._dep.patch {};
+  git = self.callCabal2nix "git" self._dep.hs-git {};
 
   webdriver = self.callHackage "webdriver" "0.9.0.1" {};
 
