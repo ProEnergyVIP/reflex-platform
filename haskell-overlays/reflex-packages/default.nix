@@ -120,6 +120,8 @@ in
 
   vty = self.callHackage "vty" "5.28.2" {};
   microlens = self.callHackage "microlens" "0.4.11.2" {};
+  microlens-ghc = self.callHackage "microlens-ghc" "0.4.12" {};
+  microlens-platform = self.callHackage "microlens-platform" "0.4.1" {};
   
   ##
   ## Tooling
