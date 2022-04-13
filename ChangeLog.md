@@ -4,10 +4,83 @@ This project's release branch is `master`. This log is written from the perspect
 
 ## Unreleased
 
+* Fix SIGBUS crashes on armv7a due unaligned writes ([!774](https://github.com/reflex-frp/reflex-platform/pull/774))
+* Always use GHC 8.10.7, not GHC 8.10.4, for GHC 8.10.
+  Previously we were using mixed GHC 8.10 versions to avoid issues.
+* GHC 8.10 support is complete, with the remaining profiling builds
+  that worked for 8.6 (everything but GHCJS's) now also working for 8.10.
+
+* GHCJS 8.6 no longer uses older versions of some libraries with "text JS-string"
+
+  * `dlist`
+  * `ghcjs-base`
+  * `ghcjs-base`
+  * `primitive`
+  * `vector`
+  * hashable
+
+  Instead it uses the same versions as everything else.
+
 * Bump
+
+  Intentional bumps:
+
+  * all-cabal-hashes "Update from Hackage at 2022-01-20T19:38:07Z"
+  * dependent-sum-template to 0.1.1.0
+  * some to 1.0.2
+
+  Prerequisite bumps:
+
+  * OneTuple 0.3.1
+  * QuickCheck 2.14.1
+  * aeson 1.5.4.1
+  * base-orphans 0.8.6
+  * bifunctors 5.5.11
+  * comonad 5.0.8
+  * generic-deriving 1.14.1
+  * hashable 1.3.5.0
+  * index-traversable 0.1.2
+  * invariant 0.5.5
+  * lens 4.19.2
+  * microlens-th 0.4.3.10
+  * quickcheck-instances 0.3.27
+  * splitmix 0.1.0.4
+  * strict 0.4.0.1
+  * tagged 0.8.6.1
+  * th-abstraction 0.4.3.0
+  * th-lift 0.8.2
+  * time-compat 1.9.4
+
+## v0.9.2.0
+
+* Bump
+  * [reflex-dom-core to 0.7.0.0](https://github.com/reflex-frp/reflex-dom/releases/tag/reflex-dom-core-0.7.0.0).
+  * reflex-dom to 0.6.1.1-r1
+
+## v0.9.1.0
+
+* Add a partial preview of GHC 8.10 support, not on by default.
+  * native: linux and macOS
+  * iOS, unprofiled only
+  * android, unprofiled only
+  * Add GHCJS 8.10.7
+
+* Bump
+  * [reflex to 0.8.2.0](https://github.com/reflex-frp/reflex/releases/tag/v0.8.2.0)
+  * [reflex-dom-core to 0.6.3.0](https://github.com/reflex-frp/reflex-dom/releases/tag/reflex-dom-core-0.6.3.0)
+  * [reflex-dom to 0.6.1.1](https://github.com/reflex-frp/reflex-dom/releases/tag/reflex-dom-0.6.1.1)
   * [reflex-vty to 0.2.0.0](https://github.com/reflex-frp/reflex-vty/releases/tag/v0.2.0.0)
   * reflex-process to 0.3.1.1
   * reflex-ghci to 0.1.5.2
+  * cabal-macosx to 0.2.4.2
+  * all-cabal-hashes ("Update from Hackage at 2021-12-22T18:48:06Z")
+  * beam-automigrate to 0.1.2.0
+  * beam-core to 0.9.1.0
+  * beam-migrate to 0.5.1.0
+  * beam-postgres to 0.5.1.0
+  * pandoc to 2.16.2
+* New pins
+  * ghcjs-promise 0.1.0.3
 
 ## v0.9.0.0
 
