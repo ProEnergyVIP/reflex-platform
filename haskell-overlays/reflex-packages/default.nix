@@ -119,7 +119,8 @@ in
   reflex-fsnotify = self.callHackage "reflex-fsnotify" "0.2.1.2" {};
 
   vty = self.callHackage "vty" "5.28.2" {};
-
+  microlens = self.callHackage "microlens" "0.4.11.2" {};
+  
   ##
   ## Tooling
   ##
