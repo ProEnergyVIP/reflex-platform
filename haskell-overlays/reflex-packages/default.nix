@@ -188,7 +188,7 @@ in
     sha256 = "1criynifhvmnqwhrshmzylikqkvlgq98xf72w9cdd2zpjw539qf0";
   }) {};
 
-  constraints-extras = self.callHackage "constraints-extras" "0.3.0.2" {};
+  #constraints-extras = self.callHackage "constraints-extras" "0.3.0.2" {};
   some = self.callHackage "some" "1.0.2" {};
   prim-uniq = self.callHackage "prim-uniq" "0.2" {};
   aeson-gadt-th = self.callHackage "aeson-gadt-th" "0.2.4" {};
