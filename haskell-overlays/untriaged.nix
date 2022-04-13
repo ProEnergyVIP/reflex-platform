@@ -52,6 +52,10 @@ self: super: {
   cryptohash-sha512 = doJailbreak super.cryptohash-sha512;
   ListLike = self.callHackage "ListLike" "4.7.3" {};
 
+  # constrain ref-tf version so that jsaddle can compile correctly
+  ref-tf = self.callHackage "ref-tf" "0.4.0.2" {};
+  witherable = self.callHackage "witherable" "0.3.4" {};
+
   # ghcjs-promise is marked broken in nixpkgs
   ghcjs-promise = self.callHackage "ghcjs-promise" "0.1.0.3" {};
 }
