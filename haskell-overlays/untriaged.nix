@@ -36,7 +36,7 @@ self: super: {
   beam-postgres = haskellLib.dontCheck (self.callHackage "beam-postgres" "0.5.1.0" {});
   beam-automigrate = self.callHackage "beam-automigrate" "0.1.2.0" {};
 
-  # hnix 0.12 and dependencies
+  # hnix 0.13 and dependencies
   hnix = dontCheck
     (overrideCabal (self.callCabal2nix "hnix" (nixpkgs.hackGet ./hnix/hnix) {}) (drv: {
       librarySystemDepends = (drv.librarySystemDepends or []) ++ [ nixpkgs.nix ];
