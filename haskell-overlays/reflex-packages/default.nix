@@ -212,6 +212,8 @@ in
   OneTuple = self.callHackage "OneTuple" "0.3" {};
   base-orphans = self.callHackage "base-orphans" "0.8.6" {};
 
+  hashable = self.callHackage "hashable" "1.3.5.0" {};
+
   turtle = self.callHackage "turtle" "1.5.20" {};
   constraints = self.callHackage "constraints" "0.12" {};
 
