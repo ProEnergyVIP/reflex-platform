@@ -1,9 +1,9 @@
 {
-  "owner": "haskell-nix",
+  "owner": "ProEnergyVIP",
   "repo": "hnix",
-  "branch": "master",
+  "branch": "proenergy-custom",
   "private": false,
-  "rev": "7e2a5aafcd03c105dfb7cecb5d2f4f349a086529",
-  "sha256": "1mqj0hhcini414m3sc9zl2bwpkgxcfifqn91fyq5qbmvmaj0d49a",
+  "rev": "020d970877f1c356567a1107a7da1b12b6817221",
+  "sha256": "gzeFj2FeqGOtJdgdbB8KCiHtFR2MB7LJXVmiWOCck48=",
   "fetchSubmodules": true
 }
