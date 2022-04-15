@@ -125,12 +125,6 @@ let iosSupport = system == "x86_64-darwin";
         aarch64 = {
           crossSystem = lib.systems.examples.aarch64-android-prebuilt;
         };
-        aarch32 = {
-          crossSystem = lib.systems.examples.armv7a-android-prebuilt // {
-            # Choose an old version so it's easier to find phones to test on
-            sdkVer = "23";
-          };
-        };
       };
       ios = lib.mapAttrs (_: args: nixpkgsFunc (nixpkgsArgs // args)) rec {
         simulator64 = {
@@ -141,12 +135,6 @@ let iosSupport = system == "x86_64-darwin";
         };
         aarch64 = {
           crossSystem = lib.systems.examples.iphone64 // {
-            sdkVer = iosSdkVersion;
-            inherit xcodeVer;
-          };
-        };
-        aarch32 = {
-          crossSystem = lib.systems.examples.iphone32 // {
             sdkVer = iosSdkVersion;
             inherit xcodeVer;
           };
@@ -239,10 +227,6 @@ let iosSupport = system == "x86_64-darwin";
   ghcAndroidAarch64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.android.aarch64.haskell.packages.integer-simple.ghcSplices-8_10).override {
     overrides = nixpkgsCross.android.aarch64.haskell.overlays.combined;
   });
-  ghcAndroidAarch32 = ghcAndroidAarch32-8_10;
-  ghcAndroidAarch32-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.android.aarch32.haskell.packages.integer-simple.ghcSplices-8_10).override {
-    overrides = nixpkgsCross.android.aarch32.haskell.overlays.combined;
-  });
 
   ghcIosSimulator64 = ghcIosSimulator64-8_10;
   ghcIosSimulator64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.simulator64.haskell.packages.integer-simple.ghcSplices-8_10).override {
@@ -252,28 +236,21 @@ let iosSupport = system == "x86_64-darwin";
   ghcIosAarch64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.aarch64.haskell.packages.integer-simple.ghcSplices-8_10).override {
     overrides = nixpkgsCross.ios.aarch64.haskell.overlays.combined;
   });
-  ghcIosAarch32 = ghcIosAarch32-8_10;
-  ghcIosAarch32-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.aarch32.haskell.packages.integer-simple.ghcSplices-8_10).override {
-    overrides = nixpkgsCross.ios.aarch32.haskell.overlays.combined;
-  });
 
   #TODO: Separate debug and release APKs
   #TODO: Warn the user that the android app name can't include dashes
   android = androidWithHaskellPackages {
-    inherit ghcAndroidAarch64 ghcAndroidAarch32;
+    inherit ghcAndroidAarch64;
   };
   android-8_10 = androidWithHaskellPackages {
     ghcAndroidAarch64 = ghcAndroidAarch64-8_10;
-    ghcAndroidAarch32 = ghcAndroidAarch32-8_10;
   };
-  androidWithHaskellPackages = { ghcAndroidAarch64, ghcAndroidAarch32 }: import ./android {
-    inherit nixpkgs nixpkgsCross ghcAndroidAarch64 ghcAndroidAarch32 overrideCabal;
+  androidWithHaskellPackages = { ghcAndroidAarch64 }: import ./android {
+    inherit nixpkgs nixpkgsCross ghcAndroidAarch64 overrideCabal;
     acceptAndroidSdkLicenses = config.android_sdk.accept_license or false;
   };
   iosAarch64 = iosWithHaskellPackages ghcIosAarch64;
   iosAarch64-8_10 = iosWithHaskellPackages ghcIosAarch64-8_10;
-  iosAarch32 = iosWithHaskellPackages ghcIosAarch32;
-  iosAarch32-8_10 = iosWithHaskellPackages ghcIosAarch32-8_10;
   iosSimulator = {
     buildApp = nixpkgs.lib.makeOverridable (import ./ios { inherit nixpkgs; ghc = ghcIosSimulator64; withSimulator = true; });
   };
@@ -296,19 +273,14 @@ in let this = rec {
           ghcIosSimulator64
           ghcIosAarch64
           ghcIosAarch64-8_10
-          ghcIosAarch32
-          ghcIosAarch32-8_10
           ghcAndroidAarch64
           ghcAndroidAarch64-8_10
-          ghcAndroidAarch32
-          ghcAndroidAarch32-8_10
           ghcjs
           ghcjs8_10
           ghcSavedSplices
           ghcSavedSplices-8_10
           android
           androidWithHaskellPackages
-          iosAarch32
           iosAarch64
           iosSimulator
           iosWithHaskellPackages
@@ -319,7 +291,6 @@ in let this = rec {
   # Back compat
   ios = iosAarch64;
   ghcAndroidArm64 = lib.warn "ghcAndroidArm64 has been deprecated, using ghcAndroidAarch64 instead." ghcAndroidAarch64;
-  ghcAndroidArmv7a = lib.warn "ghcAndroidArmv7a has been deprecated, using ghcAndroidAarch32 instead." ghcAndroidAarch32;
   ghcIosArm64 = lib.warn "ghcIosArm64 has been deprecated, using ghcIosAarch64 instead." ghcIosAarch64;
 
   androidReflexTodomvc = android.buildApp {
@@ -451,7 +422,6 @@ in let this = rec {
   cachePackages =
     let otherPlatforms = lib.optionals androidSupport [
           "ghcAndroidAarch64"
-          "ghcAndroidAarch32"
         ] ++ lib.optionals iosSupport [
           "ghcIosAarch64"
           "ghcIosSimulator64"
