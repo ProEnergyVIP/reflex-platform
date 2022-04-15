@@ -50,7 +50,7 @@ self: super: {
   #neat-interpolation = self.callHackage "neat-interpolation" "0.4" {};
   prettyprinter = self.callHackage "prettyprinter" "1.7.0" {};
   cryptohash-sha512 = doJailbreak super.cryptohash-sha512;
-  ListLike = self.callHackage "ListLike" "4.7.3" {};
+  ListLike = self.callHackage "ListLike" "4.7.4" {};
 
   # constrain ref-tf version so that jsaddle can compile correctly
   ref-tf = self.callHackage "ref-tf" "0.4.0.2" {};
