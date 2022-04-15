@@ -83,6 +83,11 @@ let iosSupport = system == "x86_64-darwin";
             configureFlags = ["--disable-shared" "--enable-static"];
           });
       };
+      
+      libiconv = super.libiconv.override (lib.optionalAttrs
+        (self.stdenv.hostPlatform != self.stdenv.buildPlatform)
+        { static = true; shared = false; });
+
       zlib = super.zlib.override (lib.optionalAttrs
         (self.stdenv.hostPlatform != self.stdenv.buildPlatform)
         { static = true; shared = false; });
