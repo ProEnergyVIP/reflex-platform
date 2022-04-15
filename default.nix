@@ -27,7 +27,7 @@ let iosSupport = system == "x86_64-darwin";
     splicesEval = self: super: {
       haskell = super.haskell // {
         compiler = super.haskell.compiler // {
-          ghcSplices-8_10 = (super.haskell.compiler.ghc8107.override {
+          ghcSplices-8_10 = (super.haskell.compiler.ghc8104.override {
             # New option for GHC 8.10. Explicitly enable profiling builds
             enableProfiledLibs = true;
             bootPkgs = super.haskell.packages.ghc8102BinaryMinimal // { happy = nixpkgs.haskellPackages.happy_1_19_12; };
@@ -48,7 +48,7 @@ let iosSupport = system == "x86_64-darwin";
           });
         };
         packages = super.haskell.packages // {
-          ghcSplices-8_10 = super.haskell.packages.ghc8107.override {
+          ghcSplices-8_10 = super.haskell.packages.ghc8104.override {
             buildHaskellPackages = self.buildPackages.haskell.packages.ghcSplices-8_10;
             ghc = self.buildPackages.haskell.compiler.ghcSplices-8_10;
           };
