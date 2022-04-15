@@ -42,7 +42,7 @@ let iosSupport = system == "x86_64-darwin";
             '' + drv.preConfigure or "";
             patches = [
               # Patch libraries/unix/config.sub to fix android build
-              # ./nixpkgs-overlays/android-8.10-splices.patch
+              ./nixpkgs-overlays/android-8.10-splices.patch
               ./nixpkgs-overlays/aclocal_AC_PROG_CC_C99.patch
             ];
           });
