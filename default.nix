@@ -84,6 +84,12 @@ let iosSupport = system == "x86_64-darwin";
             configureFlags = ["--disable-shared" "--enable-static"];
           });
       };
+
+      # force to use static libiconv to avoid ld.gold linker problem
+      libiconvReal = super.libiconvReal.override (lib.optionalAttrs
+        (self.stdenv.hostPlatform != self.stdenv.buildPlatform)
+        { enableStatic = true; enableShared = false; });
+      
       zlib = super.zlib.override (lib.optionalAttrs
         (self.stdenv.hostPlatform != self.stdenv.buildPlatform)
         { static = true; shared = false; });
