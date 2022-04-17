@@ -52,6 +52,8 @@ let iosSupport = system == "x86_64-darwin";
           ghcSplices-8_10 = super.haskell.packages.ghc8104.override {
             buildHaskellPackages = self.buildPackages.haskell.packages.ghcSplices-8_10;
             ghc = self.buildPackages.haskell.compiler.ghcSplices-8_10;
+
+            QuickCheck = haskellLib.dontCheck(super.haskell.packages.ghc8104.QuickCheck);
           };
         };
       };
