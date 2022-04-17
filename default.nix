@@ -105,7 +105,7 @@ let iosSupport = system == "x86_64-darwin";
         hackGetOverlay
         bindHaskellOverlays
         forceStaticLibs
-        #splicesEval
+        splicesEval
         mobileGhcOverlay
         allCabalHashesOverlay
         (import ./nixpkgs-overlays/ghc.nix { inherit lib; })
