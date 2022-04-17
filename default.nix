@@ -105,7 +105,7 @@ let iosSupport = system == "x86_64-darwin";
         hackGetOverlay
         bindHaskellOverlays
         forceStaticLibs
-        splicesEval
+        #splicesEval
         mobileGhcOverlay
         allCabalHashesOverlay
         (import ./nixpkgs-overlays/ghc.nix { inherit lib; })
@@ -231,16 +231,16 @@ let iosSupport = system == "x86_64-darwin";
   };
 
   ghcAndroidAarch64 = ghcAndroidAarch64-8_10;
-  ghcAndroidAarch64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.android.aarch64.haskell.packages.integer-simple.ghcSplices-8_10).override {
+  ghcAndroidAarch64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.android.aarch64.haskell.packages.integer-simple.ghc-8_10).override {
     overrides = nixpkgsCross.android.aarch64.haskell.overlays.combined;
   });
 
   ghcIosSimulator64 = ghcIosSimulator64-8_10;
-  ghcIosSimulator64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.simulator64.haskell.packages.integer-simple.ghcSplices-8_10).override {
+  ghcIosSimulator64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.simulator64.haskell.packages.integer-simple.ghc-8_10).override {
     overrides = nixpkgsCross.ios.simulator64.haskell.overlays.combined;
   });
   ghcIosAarch64 = ghcIosAarch64-8_10;
-  ghcIosAarch64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.aarch64.haskell.packages.integer-simple.ghcSplices-8_10).override {
+  ghcIosAarch64-8_10 = makeRecursivelyOverridableBHPToo ((makeRecursivelyOverridable nixpkgsCross.ios.aarch64.haskell.packages.integer-simple.ghc-8_10).override {
     overrides = nixpkgsCross.ios.aarch64.haskell.overlays.combined;
   });
 
